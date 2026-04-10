@@ -10,3 +10,7 @@ function Book(title, author, pages, status) {
   this.pages = pages;
   this.status = status;
 }
+
+const lotro = new Book("Lord Of The Rings", "JRR Tolkien", "400", "Read");
+
+console.log(lotro);
