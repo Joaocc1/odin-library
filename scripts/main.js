@@ -11,6 +11,11 @@ function Book(title, author, pages, status) {
   this.status = status;
 }
 
-const lotro = new Book("Lord Of The Rings", "JRR Tolkien", "400", "Read");
+function addBookToLibrary(title, author, pages, status) {
+  const newBook = new Book(title, author, pages, status);
+  myLibrary.push(newBook);
+}
 
-console.log(lotro);
+addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", "Read");
+
+console.log(myLibrary);
