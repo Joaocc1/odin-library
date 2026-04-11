@@ -10,6 +10,16 @@ body {
     system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: linear-gradient(40deg, #454fb9, #b758ba);
+  color: #3a3a3a;
+}
+
+button {
+  background-color: #f2d057;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  color: inherit;
 }
 
 .container {
