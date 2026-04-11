@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: linear-gradient(40deg, #454fb9, #b758ba);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 4rem;
+}
+
+table {
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+  color: #3a3a3a;
+}
+
+.bookstand {
+  flex: 1;
+}
+
+.bookstand td,
+.bookstand th {
+  padding: 1rem;
+  text-align: start;
+}
+
+.bookstand th {
+  background-color: #372e49;
+  color: #ffffff;
+  /*border-radius: 5px;*/
+}
+
+.bookstand tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.bookstand tr:nth-child(odd) {
+  background-color: #ffffff;
+}

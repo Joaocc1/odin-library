@@ -23,7 +23,23 @@ addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", "Read");
 addBookToLibrary("Dune", "Frank Herbert", "290", "Read");
 
 myLibrary.forEach((book) => {
-  console.log(book);
+  const row = document.createElement("tr");
+  const title = document.createElement("td");
+  const author = document.createElement("td");
+  const pages = document.createElement("td");
+  const status = document.createElement("td");
+
+  title.textContent = book.title;
+  author.textContent = book.author;
+  pages.textContent = book.pages;
+  status.textContent = book.status;
+
+  row.appendChild(title);
+  row.appendChild(author);
+  row.appendChild(pages);
+  row.appendChild(status);
+
+  bookStand.appendChild(row);
 });
 
 console.log(myLibrary);
