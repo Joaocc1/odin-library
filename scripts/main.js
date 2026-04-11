@@ -1,3 +1,5 @@
+const bookStand = document.querySelector(".bookstand");
+
 const myLibrary = [];
 
 function Book(title, author, pages, status) {
@@ -18,5 +20,10 @@ function addBookToLibrary(title, author, pages, status) {
 }
 
 addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", "Read");
+addBookToLibrary("Dune", "Frank Herbert", "290", "Read");
+
+myLibrary.forEach((book) => {
+  console.log(book);
+});
 
 console.log(myLibrary);
