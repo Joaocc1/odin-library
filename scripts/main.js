@@ -28,16 +28,21 @@ myLibrary.forEach((book) => {
   const author = document.createElement("td");
   const pages = document.createElement("td");
   const status = document.createElement("td");
+  const remove = document.createElement("td");
+  const delBtn = document.createElement("button");
 
   title.textContent = book.title;
   author.textContent = book.author;
   pages.textContent = book.pages;
   status.textContent = book.status;
+  delBtn.textContent = "Remove";
 
   row.appendChild(title);
   row.appendChild(author);
   row.appendChild(pages);
   row.appendChild(status);
+  remove.appendChild(delBtn);
+  row.appendChild(remove);
 
   bookStand.appendChild(row);
 });
