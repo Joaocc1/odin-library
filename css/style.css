@@ -59,3 +59,8 @@ table {
 .bookstand tr:nth-child(odd) {
   background-color: #ffffff;
 }
+
+.add-book-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

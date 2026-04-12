@@ -1,4 +1,6 @@
 const bookStand = document.querySelector(".bookstand");
+const addBookBtn = document.querySelector(".add-book-btn");
+const addBookModal = document.querySelector("#add-book-modal");
 
 const myLibrary = [];
 
@@ -45,6 +47,10 @@ myLibrary.forEach((book) => {
   row.appendChild(remove);
 
   bookStand.appendChild(row);
+});
+
+addBookBtn.addEventListener("click", () => {
+  addBookModal.showModal();
 });
 
 console.log(myLibrary);
