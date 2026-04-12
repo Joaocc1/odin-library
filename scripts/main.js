@@ -93,3 +93,11 @@ bookStand.addEventListener("click", (e) => {
     console.log(myLibrary);
   }
 });
+
+// To do
+//
+// - add button to toggle read status
+// - change read status to yes/no
+// - remove values from form inputs after adding book
+// - refine front-end ui, especially the add book modal
+// - (optional) add a confirmation prompt when removing book
