@@ -1,6 +1,7 @@
 const bookStand = document.querySelector(".bookstand");
-const addBookBtn = document.querySelector(".add-book-btn");
+const openModal = document.querySelector(".open-modal");
 const addBookModal = document.querySelector("#add-book-modal");
+const addBookBtn = document.querySelector("#add-book-btn");
 
 const myLibrary = [];
 
@@ -24,33 +25,46 @@ function addBookToLibrary(title, author, pages, status) {
 addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", "Read");
 addBookToLibrary("Dune", "Frank Herbert", "290", "Read");
 
-myLibrary.forEach((book) => {
-  const row = document.createElement("tr");
-  const title = document.createElement("td");
-  const author = document.createElement("td");
-  const pages = document.createElement("td");
-  const status = document.createElement("td");
-  const remove = document.createElement("td");
-  const delBtn = document.createElement("button");
+function showLibrary() {
+  myLibrary.forEach((book) => {
+    const row = document.createElement("tr");
+    const title = document.createElement("td");
+    const author = document.createElement("td");
+    const pages = document.createElement("td");
+    const status = document.createElement("td");
+    const remove = document.createElement("td");
+    const delBtn = document.createElement("button");
 
-  title.textContent = book.title;
-  author.textContent = book.author;
-  pages.textContent = book.pages;
-  status.textContent = book.status;
-  delBtn.textContent = "Remove";
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = book.pages;
+    status.textContent = book.status;
+    delBtn.textContent = "Remove";
 
-  row.appendChild(title);
-  row.appendChild(author);
-  row.appendChild(pages);
-  row.appendChild(status);
-  remove.appendChild(delBtn);
-  row.appendChild(remove);
+    row.appendChild(title);
+    row.appendChild(author);
+    row.appendChild(pages);
+    row.appendChild(status);
+    remove.appendChild(delBtn);
+    row.appendChild(remove);
 
-  bookStand.appendChild(row);
-});
+    bookStand.appendChild(row);
+  });
+}
 
-addBookBtn.addEventListener("click", () => {
+openModal.addEventListener("click", () => {
   addBookModal.showModal();
 });
 
+addBookBtn.addEventListener("click", () => {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const read = document.querySelector("#read").value;
+
+  addBookToLibrary(title, author, pages, read);
+});
+
 console.log(myLibrary);
+
+showLibrary();
