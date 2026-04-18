@@ -22,8 +22,8 @@ function addBookToLibrary(title, author, pages, status) {
   myLibrary.push(newBook);
 }
 
-addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", "Read");
-addBookToLibrary("Dune", "Frank Herbert", "290", "Read");
+addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", "Yes");
+addBookToLibrary("Dune", "Frank Herbert", "290", "Yes");
 
 function createBookDisplay(book) {
   const row = document.createElement("tr");
