@@ -3,8 +3,10 @@ const openModal = document.querySelector(".open-modal");
 const addBookModal = document.querySelector("#add-book-modal");
 const addBookBtn = document.querySelector("#add-book-btn");
 
+// Array that holds all books
 const myLibrary = [];
 
+// Function constructor that creates new book objects
 function Book(title, author, pages, status) {
   // prevent error if not using 'new' operator
   if (!new.target) {
@@ -21,14 +23,11 @@ Book.prototype.toggleStatus = function () {
   this.status = !this.status;
 };
 
+// Functions
 function addBookToLibrary(title, author, pages, status) {
   const newBook = new Book(title, author, pages, status);
   myLibrary.push(newBook);
 }
-
-addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", true);
-addBookToLibrary("Dune", "Frank Herbert", "290", true);
-addBookToLibrary("A Gentleman in Moscow", "Amor Towles", "495", true);
 
 function createBookDisplay(book) {
   const row = document.createElement("tr");
@@ -92,10 +91,6 @@ addBookBtn.addEventListener("click", () => {
   createBookDisplay(book);
 });
 
-console.log(myLibrary);
-
-showLibrary();
-
 bookStand.addEventListener("click", (e) => {
   if (e.target.matches(".remove")) {
     const bookId = e.target.dataset.id;
@@ -126,9 +121,15 @@ bookStand.addEventListener("click", (e) => {
   }
 });
 
+addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", true);
+addBookToLibrary("Dune", "Frank Herbert", "290", true);
+addBookToLibrary("A Gentleman in Moscow", "Amor Towles", "495", true);
+
+console.log(myLibrary);
+showLibrary();
+
 // To do
 //
-// - add button to toggle read status
 // - remove values from form inputs after adding book
 // - refine front-end ui, especially the add book modal
 // - (optional) add a confirmation prompt when removing book
