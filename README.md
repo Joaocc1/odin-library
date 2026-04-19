@@ -4,6 +4,8 @@ A small library app that keeps track of books and their information. Part of The
 ## Overview
 This was a good project to pratice more interaction between javascript and the DOM elements and to pratice using objects and object constructors.
 
+Using the prototype to add a function in order to toggle the status of books (read or not) was a very important point since it made me fully understand that concept and the usefulness of defining functions outside the constructor.
+
 I decided to use a <table> element to show the "Library" objects since it was in one of the more recent lessons and to have an opportunity of praticing it.
 
 For styling I also decided to use techniques that have not been shown yet at this point in the course but that I recently learned about and decided to try and use on this particular project.
