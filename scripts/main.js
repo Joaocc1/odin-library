@@ -17,13 +17,18 @@ function Book(title, author, pages, status) {
   this.id = crypto.randomUUID();
 }
 
+Book.prototype.toggleStatus = function () {
+  this.status = !this.status;
+};
+
 function addBookToLibrary(title, author, pages, status) {
   const newBook = new Book(title, author, pages, status);
   myLibrary.push(newBook);
 }
 
-addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", "Yes");
-addBookToLibrary("Dune", "Frank Herbert", "290", "Yes");
+addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", true);
+addBookToLibrary("Dune", "Frank Herbert", "290", true);
+addBookToLibrary("A Gentleman in Moscow", "Amor Towles", "495", true);
 
 function createBookDisplay(book) {
   const row = document.createElement("tr");
@@ -31,24 +36,29 @@ function createBookDisplay(book) {
   const author = document.createElement("td");
   const pages = document.createElement("td");
   const status = document.createElement("td");
+  const toggleBtn = document.createElement("button");
   const remove = document.createElement("td");
   const delBtn = document.createElement("button");
 
   row.setAttribute("data-id", book.id);
 
+  toggleBtn.classList.add("toggle-btn");
+  toggleBtn.setAttribute("data-id", book.id);
   delBtn.classList.add("remove");
   delBtn.setAttribute("data-id", book.id);
 
   title.textContent = book.title;
   author.textContent = book.author;
   pages.textContent = book.pages;
-  status.textContent = book.status;
+  toggleBtn.textContent =
+    book.status === true ? "Yes" : book.status === false ? "No" : "N/A";
   delBtn.textContent = "Remove";
 
   row.appendChild(title);
   row.appendChild(author);
   row.appendChild(pages);
   row.appendChild(status);
+  status.appendChild(toggleBtn);
   remove.appendChild(delBtn);
   row.appendChild(remove);
 
@@ -69,7 +79,12 @@ addBookBtn.addEventListener("click", () => {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const pages = document.querySelector("#pages").value;
-  const read = document.querySelector("#read").value;
+  const read =
+    document.querySelector("#read").value === "Yes"
+      ? true
+      : document.querySelector("#read").value === "No"
+        ? false
+        : "N/A";
 
   addBookToLibrary(title, author, pages, read);
 
@@ -94,10 +109,26 @@ bookStand.addEventListener("click", (e) => {
   }
 });
 
+bookStand.addEventListener("click", (e) => {
+  if (e.target.matches(".toggle-btn")) {
+    const bookId = e.target.dataset.id;
+    const toggleBtn = document.querySelector(`.toggle-btn[data-id="${bookId}"`);
+    const getBook = myLibrary.indexOf(
+      myLibrary.find((book) => book.id === bookId),
+    );
+    myLibrary[getBook].toggleStatus();
+    toggleBtn.textContent =
+      toggleBtn.textContent === "Yes"
+        ? "No"
+        : toggleBtn.textContent === "No"
+          ? "Yes"
+          : "N/A";
+  }
+});
+
 // To do
 //
 // - add button to toggle read status
-// - change read status to yes/no
 // - remove values from form inputs after adding book
 // - refine front-end ui, especially the add book modal
 // - (optional) add a confirmation prompt when removing book

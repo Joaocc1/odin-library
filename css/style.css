@@ -27,6 +27,7 @@ button {
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1.5rem;
+  min-width: 75px;
   color: inherit;
   filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.15));
 }
@@ -75,4 +76,9 @@ table {
 .add-book-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.toggle-btn {
+  background-color: #372e49;
+  color: #ffffff;
 }
