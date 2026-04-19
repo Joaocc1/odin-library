@@ -125,16 +125,21 @@ bookStand.addEventListener("click", (e) => {
   }
 });
 
+addBookModal.addEventListener("click", (e) => {
+  if (e.target === addBookModal) {
+    addBookModal.close();
+  }
+});
+
 // add initial books
-addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", true);
-addBookToLibrary("Dune", "Frank Herbert", "290", true);
-addBookToLibrary("A Gentleman in Moscow", "Amor Towles", "495", true);
+addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "1216", true);
+addBookToLibrary("Dune", "Frank Herbert", "658", true);
+addBookToLibrary("A Gentleman in Moscow", "Amor Towles", "495", false);
 
 console.log(myLibrary);
 showLibrary();
 
 // To do
 //
-// - remove values from form inputs after adding book
 // - refine front-end ui, especially the add book modal
 // - (optional) add a confirmation prompt when removing book
