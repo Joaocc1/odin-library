@@ -138,8 +138,3 @@ addBookToLibrary("A Gentleman in Moscow", "Amor Towles", "495", false);
 
 console.log(myLibrary);
 showLibrary();
-
-// To do
-//
-// - refine front-end ui, especially the add book modal
-// - (optional) add a confirmation prompt when removing book
