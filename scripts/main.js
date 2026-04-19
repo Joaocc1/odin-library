@@ -70,11 +70,13 @@ function showLibrary() {
   });
 }
 
+// Event listeners
 openModal.addEventListener("click", () => {
   addBookModal.showModal();
 });
 
 addBookBtn.addEventListener("click", () => {
+  const addBookForm = document.querySelector(".add-book-form");
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const pages = document.querySelector("#pages").value;
@@ -89,6 +91,8 @@ addBookBtn.addEventListener("click", () => {
 
   const book = myLibrary[myLibrary.length - 1];
   createBookDisplay(book);
+
+  addBookForm.reset();
 });
 
 bookStand.addEventListener("click", (e) => {
@@ -121,6 +125,7 @@ bookStand.addEventListener("click", (e) => {
   }
 });
 
+// add initial books
 addBookToLibrary("Lord Of The Rings", "JRR Tolkien", "400", true);
 addBookToLibrary("Dune", "Frank Herbert", "290", true);
 addBookToLibrary("A Gentleman in Moscow", "Amor Towles", "495", true);
