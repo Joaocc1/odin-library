@@ -6,22 +6,20 @@ const addBookBtn = document.querySelector("#add-book-btn");
 // Array that holds all books
 const myLibrary = [];
 
-// Function constructor that creates new book objects
-function Book(title, author, pages, status) {
-  // prevent error if not using 'new' operator
-  if (!new.target) {
-    throw Error("Must use the 'new' operator to call the constructor");
+// Class constructor that creates new book objects
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+    this.id = crypto.randomUUID();
   }
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-  this.id = crypto.randomUUID();
-}
 
-Book.prototype.toggleStatus = function () {
-  this.status = !this.status;
-};
+  toggleStatus() {
+    this.status = !this.status;
+  }
+}
 
 // Functions
 function addBookToLibrary(title, author, pages, status) {
